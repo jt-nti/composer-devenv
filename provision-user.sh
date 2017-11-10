@@ -6,11 +6,11 @@ export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 
 # Install node and npm
-nvm install 6.9.5
+nvm install 8.9.0
 
-# Configure nvm to use version 6.9.5
-nvm use 6.9.5
-nvm alias default 6.9.5
+# Configure nvm to use version 8.9.0
+nvm use 8.9.0
+nvm alias default 8.9.0
 
 # Install the latest version of npm
 npm install npm@latest -g
