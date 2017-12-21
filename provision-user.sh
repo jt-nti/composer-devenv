@@ -6,17 +6,17 @@ export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 
 # Install node and npm
-nvm install 8.9.0
+DEFAULT_NODE_VERSION=8.9.0
+nvm which ${DEFAULT_NODE_VERSION} >/dev/null 2>&1 || nvm install ${DEFAULT_NODE_VERSION}
 
-# Configure nvm to use version 8.9.0
-nvm use 8.9.0
-nvm alias default 8.9.0
+nvm use ${DEFAULT_NODE_VERSION}
+nvm alias default ${DEFAULT_NODE_VERSION}
 
 # Install the latest version of npm
-npm install npm@latest -g
+#npm install npm@latest -g
 
 # Install generator-fabric-composer prereqs
-npm install -g yo
-npm install -g typings
-npm install -g bower
-npm install -g @angular/cli
+npm ls -g yo >/dev/null 2>&1 || npm install -g yo
+npm ls -g typings >/dev/null 2>&1 || npm install -g typings
+npm ls -g bower >/dev/null 2>&1 || npm install -g bower
+npm ls -g @angular/cli >/dev/null 2>&1 || npm install -g @angular/cli
