@@ -1,3 +1,9 @@
 # composer-quickstart-vagrant
 
-Vagrant environment to help get started with [Fabric Composer](fabric-composer.org) quickstart and tutorials.
+[Vagrant](https://www.vagrantup.com) environment to help get started with [Hyperledger Composer](https://hyperledger.github.io/composer/).
+
+To configure a development environment for the latest stable release of Composer, run the following command:
+
+```
+COMPOSER_VERSION=latest vagrant up
+```
