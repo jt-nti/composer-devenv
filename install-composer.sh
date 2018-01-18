@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
 if [ -z $1 ]; then
-  COMPOSER_VERSION=latest
+  echo "Skipping Composer install"
+  exit 0
 else
   COMPOSER_VERSION=$1
 fi
 
-if [ ${COMPOSER_VERSION} = 'latest' -o ${COMPOSER_VERSION:0:5} = '0.16.' ]; then
+if [ ${COMPOSER_VERSION} = 'latest' -o ${COMPOSER_VERSION} = 'unstable' -o ${COMPOSER_VERSION:0:5} = '0.16.' ]; then
   export FABRIC_VERSION=hlfv1
-elif [ ${COMPOSER_VERSION:0:5} = '0.17.' ]; then
+elif [ ${COMPOSER_VERSION} = 'next' -o ${COMPOSER_VERSION} = 'next-unstable' -o ${COMPOSER_VERSION:0:5} = '0.17.' ]; then
   export FABRIC_VERSION=hlfv11
 else
   >&2 echo "Unexpected COMPOSER_VERSION ${COMPOSER_VERSION}"
-  >&2 echo "COMPOSER_VERSION must be a 0.16.x or 0.17.x version"
-  >&2 echo "Alternatively leave COMPOSER_VERSION unset for the latest stable version"
+  >&2 echo "COMPOSER_VERSION must be a 0.16.x (latest) or 0.17.x (next) version"
+  >&2 echo "Alternatively leave COMPOSER_VERSION unset to skip the Composer install"
   exit 1
 fi
 

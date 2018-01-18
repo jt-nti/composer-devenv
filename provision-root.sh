@@ -28,7 +28,7 @@ apt-get -y --no-upgrade install apt-transport-https ca-certificates
 apt-get -y --no-upgrade install docker-engine
 
 # Add user to docker group
-usermod -aG docker ubuntu
+usermod -aG docker vagrant
 
 # Install docker compose
 if [ ! -x /usr/local/bin/docker-compose ]; then

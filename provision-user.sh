@@ -12,9 +12,6 @@ nvm which ${DEFAULT_NODE_VERSION} >/dev/null 2>&1 || nvm install ${DEFAULT_NODE_
 nvm use ${DEFAULT_NODE_VERSION}
 nvm alias default ${DEFAULT_NODE_VERSION}
 
-# Install the latest version of npm
-#npm install npm@latest -g
-
 # Install generator-fabric-composer prereqs
 npm ls -g yo >/dev/null 2>&1 || npm install -g yo
 npm ls -g typings >/dev/null 2>&1 || npm install -g typings
