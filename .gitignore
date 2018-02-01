@@ -1,3 +1,7 @@
 /.vagrant
 
 *.log
+
+*.card
+
+*.tgz

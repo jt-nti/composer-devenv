@@ -28,7 +28,7 @@ npm ls -g generator-hyperledger-composer@${COMPOSER_VERSION} >/dev/null 2>&1 || 
 npm ls -g composer-playground@${COMPOSER_VERSION} >/dev/null 2>&1 || npm install -g composer-playground@${COMPOSER_VERSION}
 
 # Install and start Fabric dev env for Composer
-FABRIC_DIR="$HOME/${FABRIC_VERSION}-tools"
+FABRIC_DIR="$HOME/fabric-dev-servers"
 if [ ! -d ${FABRIC_DIR} ]; then
   mkdir -p ${FABRIC_DIR}
   cd ${FABRIC_DIR}
