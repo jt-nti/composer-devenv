@@ -12,7 +12,13 @@ apt-cache policy docker-engine
 # Update package lists
 apt-get update
 
-# Install python 2 required for node-gyp
+# Install jq (nice to have when there's JSON everywhere!)
+apt-get -y --no-upgrade install jq
+
+# Install unzip (useful for .card files)
+apt-get -y --no-upgrade install unzip
+
+# Install python 2 (required for node-gyp)
 apt-get -y --no-upgrade install python-minimal
 
 # Install Git
