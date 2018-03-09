@@ -13,7 +13,7 @@ You'll need to stock your machine with all these healthy ingredients if you don'
 
 ## Method
 
-To configure a development environment for the latest stable release of Composer, run the following command:
+To configure a development environment for the latest stable release of Composer (the **0.16.x** stream), run the following command:
 
 ```
 git clone https://github.com/jt-nti/composer-devenv.git
@@ -35,7 +35,7 @@ Now that you have a working development environment, why not try one of the [Com
 
 To install specific versions of Composer, set a `COMPOSER_VERSION` environment variable before running `vagrant up`. 
 
-For example, to install a slightly less stable weekly release of Composer with all the hyperlegendary new features:
+For example, to install a slightly less stable weekly release of Composer with all the hyperlegendary new features (the **0.18.x** stream):
 
 ```
 COMPOSER_VERSION=next vagrant up
@@ -47,3 +47,10 @@ Or on Windows:
 set COMPOSER_VERSION=next
 vagrant up
 ```
+
+Supported `COMPOSER_VERSION` values:
+
+- `latest` for the latest **0.16.x** release
+- `next` for the latest **0.18.x** release
+- Specific `0.16` or `0.18` version numbers
+- `none` to skip the Composer install
