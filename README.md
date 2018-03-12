@@ -13,7 +13,7 @@ You'll need to stock your machine with all these healthy ingredients if you don'
 
 ## Method
 
-To configure a development environment for the latest stable release of Composer (the **0.16.x** stream), run the following command:
+To configure a development environment for the latest stable release of Composer (the **0.16.x** stream), run the following commands:
 
 ```
 git clone https://github.com/jt-nti/composer-devenv.git
