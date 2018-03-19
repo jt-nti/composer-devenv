@@ -1,10 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Work around for issue caused by default Vagrant box hosting
-# moving to vagrantcloud.com
+# Unfortunately need to require a very recent version due to
+# issues caused by default Vagrant box hosting moving to
+# vagrantcloud.com
 # See https://github.com/hashicorp/vagrant/issues/9442
-Vagrant::DEFAULT_SERVER_URL.replace('https://vagrantcloud.com')
+Vagrant.require_version ">= 2.0.3"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
