@@ -20,9 +20,13 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
 
   # Port forwarding
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
-  config.vm.network "forwarded_port", guest: 4200, host: 4200
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true
+  config.vm.network "forwarded_port", guest: 4200, host: 4200, auto_correct: true
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
+  config.vm.network "forwarded_port", guest: 7050, host: 7050, auto_correct: true
+  config.vm.network "forwarded_port", guest: 7051, host: 7051, auto_correct: true
+  config.vm.network "forwarded_port", guest: 7053, host: 7053, auto_correct: true
+  config.vm.network "forwarded_port", guest: 7054, host: 7054, auto_correct: true
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
