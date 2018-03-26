@@ -42,3 +42,23 @@ if [ ! -d ${FABRIC_DIR} ]; then
   sg docker ./startFabric.sh
   ./createPeerAdminCard.sh
 fi
+
+#
+# add devenv section to .profile
+#
+# Note: this will remove any existing devenv section so that
+# multiple 'vagrant provision' commands do not cause duplication
+#
+DEVENV_START_COMMENT="# ---BEGIN-COMPOSER-DEVENV-PROFILE-SECTION---"
+DEVENV_END_COMMENT="# ---END-COMPOSER-DEVENV-PROFILE-SECTION---"
+
+sed -i.bak "/$DEVENV_START_COMMENT/,/$DEVENV_END_COMMENT/d" ~/.profile
+
+cat << END-PROFILE-SECTION >> ~/.profile
+$DEVENV_START_COMMENT
+
+# set fabric version
+export FABRIC_VERSION=$FABRIC_VERSION
+
+$DEVENV_END_COMMENT
+END-PROFILE-SECTION
