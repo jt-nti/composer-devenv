@@ -14,7 +14,7 @@ You'll need to stock your machine with all these healthy ingredients if you don'
 
 ## Method
 
-To configure a development environment for the latest stable release of Composer (the **0.16.x** stream), run the following commands:
+To configure a development environment for the latest stable release of Composer (the **0.19.x** stream), run the following commands:
 
 ```
 git clone https://github.com/jt-nti/composer-devenv.git
@@ -36,22 +36,39 @@ Now that you have a working development environment, why not try one of the [Com
 
 To install specific versions of Composer, set a `COMPOSER_VERSION` environment variable before running `vagrant up`. 
 
-For example, to install a slightly less stable weekly release of Composer with all the hyperlegendary new features (the **0.18.x** stream):
+For example, to install an older version of Composer with Fabric 1.0 support (the **0.16.x** stream) use:
 
 ```
-COMPOSER_VERSION=next vagrant up
+COMPOSER_VERSION=0.16.6 vagrant up
 ```
 
 Or on Windows:
 
 ```
-set COMPOSER_VERSION=next
+set COMPOSER_VERSION=0.16.6
 vagrant up
 ```
 
 Supported `COMPOSER_VERSION` values:
 
-- `latest` for the latest **0.16.x** release
-- `next` for the latest **0.18.x** release
-- Specific `0.16` or `0.18` version numbers
+- `latest` for the latest **0.19.x** release
+- Specific `0.16`, `0.18` or `0.19` version numbers
 - `none` to skip the Composer install
+
+## Cooking tips
+
+### Extra dishes
+
+If you want to set up several VMs with different versions, or for different purposes, you can clone the _composer-devenv_ repository into different directories. For example,
+
+```
+git clone https://github.com/jt-nti/composer-devenv.git composer-tutorial
+```
+
+Or simply copy an existing clone. The different directory names should show up in the VirtualBox UI after running `vagrant up` if you need to update the VM settings for any of your environments.
+
+### Clearing up
+
+When you've finished with a development environment you can suspend it using `vagrant suspend` and resume later using `vagrant up`
+
+Alternatively, if you've finished with Composer or want to start again, `vagrant destroy` will completely remove the virtual machine.
