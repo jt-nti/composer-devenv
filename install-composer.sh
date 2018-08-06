@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+FABRIC_DEV_SERVERS_URL=https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+
 if [ -z $1 ]; then
   COMPOSER_VERSION=latest
 else
@@ -11,11 +13,13 @@ if [ ${COMPOSER_VERSION} = 'none' ]; then
   exit 0
 elif [ ${COMPOSER_VERSION:0:5} = '0.16.' ]; then
   export FABRIC_VERSION=hlfv1
-elif [ ${COMPOSER_VERSION} = 'latest' -o ${COMPOSER_VERSION} = 'unstable' -o ${COMPOSER_VERSION:0:5} = '0.18.' -o ${COMPOSER_VERSION:0:5} = '0.19.' ]; then
+elif [ ${COMPOSER_VERSION:0:5} = '0.18.' -o ${COMPOSER_VERSION:0:5} = '0.19.' ]; then
   export FABRIC_VERSION=hlfv11
+elif [ ${COMPOSER_VERSION} = 'latest' -o ${COMPOSER_VERSION} = 'unstable' -o ${COMPOSER_VERSION:0:5} = '0.20.' ]; then
+  export FABRIC_VERSION=hlfv12
 else
   >&2 echo "Unexpected COMPOSER_VERSION ${COMPOSER_VERSION}"
-  >&2 echo "COMPOSER_VERSION must be a 0.16.x, 0.18.x, or 0.19.x (latest) version"
+  >&2 echo "COMPOSER_VERSION must be a 0.16.x, 0.18.x, 0.19.x, or 0.20.x (latest) version"
   >&2 echo "Alternatively use 'none' to skip the Composer install"
   exit 1
 fi
@@ -35,7 +39,7 @@ if [ ! -d ${FABRIC_DIR} ]; then
   mkdir -p ${FABRIC_DIR}
   cd ${FABRIC_DIR}
 
-  curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+  curl -O "$FABRIC_DEV_SERVERS_URL"
   tar -xvzf fabric-dev-servers.tar.gz
 
   ./downloadFabric.sh
