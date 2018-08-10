@@ -14,7 +14,7 @@ You'll need to stock your machine with all these healthy ingredients if you don'
 
 ## Method
 
-To configure a development environment for the latest stable release of Composer (the **0.19.x** stream), run the following commands:
+To configure a development environment for the latest stable release of Composer (the **0.20.x** stream), run the following commands:
 
 ```
 git clone https://github.com/jt-nti/composer-devenv.git
@@ -36,23 +36,23 @@ Now that you have a working development environment, why not try one of the [Com
 
 To install specific versions of Composer, set a `COMPOSER_VERSION` environment variable before running `vagrant up`. 
 
-For example, to install an older version of Composer with Fabric 1.0 support (the **0.16.x** stream) use:
+For example, to install an older version of Composer with Fabric 1.1 support (the **0.19.x** stream) use:
 
 ```
-COMPOSER_VERSION=0.16.6 vagrant up
+COMPOSER_VERSION=0.19.14 vagrant up
 ```
 
 Or on Windows:
 
 ```
-set COMPOSER_VERSION=0.16.6
+set COMPOSER_VERSION=0.19.14
 vagrant up
 ```
 
 Supported `COMPOSER_VERSION` values:
 
-- `latest` for the latest **0.19.x** release
-- Specific `0.16`, `0.18` or `0.19` version numbers
+- `latest` for the latest **0.20.x** release
+- Specific `0.16`, `0.18`, `0.19` or `0.20` version numbers
 - `none` to skip the Composer install
 
 ## Cooking tips
